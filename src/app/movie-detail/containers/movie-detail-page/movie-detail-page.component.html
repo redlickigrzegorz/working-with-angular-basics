@@ -1,0 +1,30 @@
+<mat-card class="card">
+  <mat-card-title>{{ movie.title }}</mat-card-title>
+  <img mat-card-image [src]="baseUrl + movie.backdrop_path" />
+  <mat-card-content class="card__content">{{ movie.overview }}</mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-button
+      (click)="onMore(movie)">
+      More
+    </button>
+  </mat-card-actions>
+</mat-card>
+<mat-list class="list">
+  <mat-list-item><h2>{{ movie.tagline }}</h2></mat-list-item>
+  <mat-list-item>Status: {{ movie.status }}</mat-list-item>
+  <mat-list-item>Release date: {{ movie.release_date | date:'dd MMMM yyyy' }}</mat-list-item>
+  <mat-list-item>Budget: {{ movie.budget | currency }}</mat-list-item>
+  <mat-list-item>Revenue: {{ movie.revenue | currency }}</mat-list-item>
+  <mat-list-item>Score: {{ movie.vote_average }}/10</mat-list-item>
+  <mat-list-item>
+    Genres:
+    <mat-chip-list class="chip-list">
+      <mat-chip
+        class="chip-list__item"
+        *ngFor="let genre of movie.genres">
+        {{ genre.name }}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-list-item>
+</mat-list>
