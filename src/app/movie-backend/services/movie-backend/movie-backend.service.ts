@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
-import { Movie, PaginatedResponse } from '../../models/movie.interface';
+import {Movie, MovieDetail, PaginatedResponse} from '../../models/movie.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,5 +24,12 @@ export class MovieBackendService {
     return this.http.get<PaginatedResponse<Movie>>(url, { params });
 
     // return of();
+  }
+
+  fetchMovie(id): Observable<MovieDetail> {
+    const url = `${this.baseUrl}/movie/${id}`;
+    const params = { api_key: environment.moviedbApiKey };
+
+    return this.http.get<MovieDetail>(url, { params });
   }
 }

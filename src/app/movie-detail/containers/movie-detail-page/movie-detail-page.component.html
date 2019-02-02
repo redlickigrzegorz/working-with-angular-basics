@@ -1,0 +1,18 @@
+<mat-card class="card">
+  <mat-card-title>{{ movieDetail.original_title }}</mat-card-title>
+  <img mat-card-image [src]="getFullImagePath(movieDetail.backdrop_path)" />
+  <mat-card-content>{{ movieDetail.overview }}</mat-card-content>
+</mat-card>
+<mat-card class="card">
+  <mat-list>
+    <mat-list-item>tagline: {{ movieDetail.tagline }}</mat-list-item>
+    <mat-list-item>status: {{ movieDetail.status }}</mat-list-item>
+    <mat-list-item>release data: {{ movieDetail.release_date | date:'dd MMMM yyyy' }}</mat-list-item>
+    <mat-list-item>budget: {{ movieDetail.budget | currency }}</mat-list-item>
+    <mat-list-item>revenue: {{ movieDetail.revenue | currency }}</mat-list-item>
+    <mat-list-item>score: {{ movieDetail.vote_average }}/10</mat-list-item>
+    <mat-chip-list>
+      <mat-chip *ngFor="let genre of movieDetail.genres">{{ genre.name }}</mat-chip>
+    </mat-chip-list>
+  </mat-list>
+</mat-card>

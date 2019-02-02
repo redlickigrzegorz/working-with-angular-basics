@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: 'src/app/home/home.module#HomeModule',
   },
   {
+    path: 'movie',
+    loadChildren: 'src/app/movie-detail/movie-detail.module#MovieDetailModule',
+  },
+  {
     path: '**',
     redirectTo: '',
   },
