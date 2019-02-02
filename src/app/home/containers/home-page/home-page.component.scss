@@ -23,3 +23,13 @@
     flex-grow: 1;
   }
 }
+
+.form {
+  margin: 20px;
+  width: 100%;
+  display: flex;
+
+  &__content {
+    flex-grow: 1;
+  }
+}

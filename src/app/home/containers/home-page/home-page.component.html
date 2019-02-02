@@ -11,4 +11,5 @@
   https://material.angular.io/components/card/overview
  -->
 
+<mat-form-field class="form"><input matInput placeholder="search..." type="text" [formControl]="search"></mat-form-field>
 <app-movie-card class="card" *ngFor="let movie of movies" [movie]="movie" (viewMore)="onViewMore(movie)"></app-movie-card>

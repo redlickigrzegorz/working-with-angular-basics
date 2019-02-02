@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
-import {Movie, MovieDetail, PaginatedResponse} from '../../models/movie.interface';
+import { Movie, MovieDetail, PaginatedResponse } from '../../models/movie.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -31,5 +31,12 @@ export class MovieBackendService {
     const params = { api_key: environment.moviedbApiKey };
 
     return this.http.get<MovieDetail>(url, { params });
+  }
+
+  searchMovie(searchedText): Observable<PaginatedResponse<Movie>> {
+    const url = `${this.baseUrl}/search/movie`;
+    const params = { api_key: environment.moviedbApiKey, query: searchedText };
+
+    return this.http.get<PaginatedResponse<Movie>>(url, { params });
   }
 }

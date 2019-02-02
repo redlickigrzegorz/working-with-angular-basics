@@ -4,7 +4,7 @@ import { HomePageComponent } from './containers/home-page/home-page.component';
 import { RouterModule, Route } from '@angular/router';
 import { MoviesResolver } from './resolvers/movies.resolver';
 import { MovieBackendModule } from '../movie-backend';
-import { MatCardModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatInputModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
@@ -26,6 +26,7 @@ const routes: Route[] = [
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatInputModule,
   ],
   declarations: [HomePageComponent],
   providers: [MoviesResolver],
