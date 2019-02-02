@@ -1,8 +1,4 @@
-<mat-card class="card">
-  <mat-card-title>{{ movieDetail.original_title }}</mat-card-title>
-  <img mat-card-image [src]="getFullImagePath(movieDetail.backdrop_path)" />
-  <mat-card-content>{{ movieDetail.overview }}</mat-card-content>
-</mat-card>
+<app-movie-card class="card" [movie]="movieDetail" (viewMore)="onViewMore(movieDetail)"></app-movie-card>
 <mat-card class="card">
   <mat-list>
     <mat-list-item>tagline: {{ movieDetail.tagline }}</mat-list-item>

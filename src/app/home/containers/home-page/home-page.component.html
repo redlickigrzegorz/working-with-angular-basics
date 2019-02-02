@@ -11,9 +11,4 @@
   https://material.angular.io/components/card/overview
  -->
 
-<mat-card class="card" *ngFor="let movie of movies">
-  <mat-card-title>{{ movie.title }}</mat-card-title>
-  <img mat-card-image [src]="getFullImagePath(movie.backdrop_path)" />
-  <mat-card-content>{{ movie.overview }}</mat-card-content>
-  <a [routerLink]="['/movie/' + movie.id]">more details...</a>
-</mat-card>
+<app-movie-card class="card" *ngFor="let movie of movies" [movie]="movie" (viewMore)="onViewMore(movie)"></app-movie-card>

@@ -1,0 +1,6 @@
+<mat-card class="card">
+  <mat-card-title>{{ movie.original_title }}</mat-card-title>
+  <img mat-card-image [src]="getFullImagePath(movie.backdrop_path)" />
+  <mat-card-content>{{ movie.overview }}</mat-card-content>
+  <mat-card-actions><button (click)="onViewMore()">more details...</button></mat-card-actions>
+</mat-card>

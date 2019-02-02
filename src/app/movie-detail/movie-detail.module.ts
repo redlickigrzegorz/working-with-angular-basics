@@ -5,6 +5,7 @@ import { Route, RouterModule } from '@angular/router';
 import { MovieBackendModule } from '../movie-backend';
 import { MatCardModule, MatChipsModule, MatListModule } from '@angular/material';
 import { MovieDetailResolver } from './resolvers/movie-detail.resolver';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Route[] = [
   {
@@ -18,6 +19,7 @@ const routes: Route[] = [
   imports: [
     RouterModule.forChild(routes),
     MovieBackendModule,
+    SharedModule,
     CommonModule,
     MatCardModule,
     MatListModule,

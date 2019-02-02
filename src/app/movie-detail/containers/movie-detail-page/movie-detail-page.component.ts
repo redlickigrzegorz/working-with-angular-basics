@@ -9,10 +9,9 @@ import {MovieDetail} from '../../../movie-backend';
 })
 export class MovieDetailPageComponent {
   constructor(private activatedRoute: ActivatedRoute) {}
-  readonly baseUrl = 'https://image.tmdb.org/t/p/w500/';
 
-  getFullImagePath(imagePath: string) {
-    return this.baseUrl + imagePath;
+  onViewMore(movie: MovieDetail) {
+    (<any>window).location.href = movie.homepage;
   }
 
   get movieDetail(): MovieDetail {

@@ -5,6 +5,8 @@ import { RouterModule, Route } from '@angular/router';
 import { MoviesResolver } from './resolvers/movies.resolver';
 import { MovieBackendModule } from '../movie-backend';
 import { MatCardModule, MatButtonModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Route[] = [
   {
@@ -19,9 +21,11 @@ const routes: Route[] = [
   imports: [
     RouterModule.forChild(routes),
     MovieBackendModule,
+    SharedModule,
     CommonModule,
     MatCardModule,
     MatButtonModule,
+    ReactiveFormsModule,
   ],
   declarations: [HomePageComponent],
   providers: [MoviesResolver],

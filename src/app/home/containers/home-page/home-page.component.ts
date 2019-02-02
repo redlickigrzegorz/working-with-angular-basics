@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Movie } from '../../../movie-backend';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -7,11 +9,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  constructor(private activatedRoute: ActivatedRoute) {}
-  readonly baseUrl = 'https://image.tmdb.org/t/p/w500/';
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
-  getFullImagePath(imagePath: string) {
-    return this.baseUrl + imagePath;
+  onViewMore(movie: Movie) {
+    return this.router.navigateByUrl(`movie/${movie.id}`);
   }
 
   get movies() {
