@@ -5,8 +5,12 @@ const routes: Routes = [
   // Route home module to { path: "" }
   // https://angular.io/guide/lazy-loading-ngmodules
   {
-    path: "**",
-    redirectTo: "",
+    path: '',
+    loadChildren: 'src/app/home/home.module#HomeModule',
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
 

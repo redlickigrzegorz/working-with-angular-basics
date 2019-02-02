@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { environment } from "src/environments/environment";
+import { environment } from 'src/environments/environment';
 import { Movie, PaginatedResponse } from '../../models/movie.interface';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieBackendService {
-  private readonly baseUrl = "https://api.themoviedb.org/3";
+  private readonly baseUrl = 'https://api.themoviedb.org/3';
   constructor(private http: HttpClient) {}
 
   fetchMovies(): Observable<PaginatedResponse<Movie>> {
@@ -21,6 +21,8 @@ export class MovieBackendService {
     // Pass PaginatedRespnse<Movie> when calling get, to provide provide returned type:
     // this.http.get<PaginatedResponse<Movie>>(...)
 
-    return of();
+    return this.http.get<PaginatedResponse<Movie>>(url, { params });
+
+    // return of();
   }
 }

@@ -8,20 +8,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomePageComponent {
   constructor(private activatedRoute: ActivatedRoute) {}
-  readonly baseUrl = "https://image.tmdb.org/t/p/w500/";
+  readonly baseUrl = 'https://image.tmdb.org/t/p/w500/';
+
+  getFullImagePath(imagePath: string) {
+    return this.baseUrl + imagePath;
+  }
 
   get movies() {
     // To access data resolved by angular router, replace 'yourResolvedVaraible'
     // with property passed to resolver
     /*
       {
-        path: "",
+        path: '',
         component: HomePageComponent,
         resolve: {
           yourResolvedVariable: YourResolver
         },
       }
     */
-    return this.activatedRoute.snapshot.data.yourResolvedVariable;
+    return this.activatedRoute.snapshot.data.movies;
   }
 }

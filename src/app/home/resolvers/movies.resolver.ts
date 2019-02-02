@@ -1,11 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { MovieBackendService } from 'src/app/movie-backend';
 import { Resolve } from '@angular/router';
 import { Movie } from 'src/app/movie-backend/models/movie.interface';
-import { of } from 'rxjs';
+// import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class MoviesResolver implements Resolve<Movie[]> {
   constructor(private movieBackendService: MovieBackendService) {}
@@ -20,6 +21,9 @@ export class MoviesResolver implements Resolve<Movie[]> {
     // const example = source.pipe(map(val => val + 10));
     // https://www.learnrxjs.io/operators/transformation/map.html
 
-    return of([]);
+    const moviesResponse$ = this.movieBackendService.fetchMovies();
+    return moviesResponse$.pipe(map(response => response.results));
+
+    // return of([]);
   }
 }

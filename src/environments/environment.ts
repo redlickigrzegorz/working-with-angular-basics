@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  moviedbApiKey: "YOUR_API_KEY",
+  moviedbApiKey: '797e00b225453aa44af071d898e2ab23',
 };
 
 /*

@@ -1,12 +1,18 @@
-<h2>Home page works</h2>
-<pre>{{ movies | json }}</pre>
+<!--<h2>Home page works</h2>-->
+<!--<pre>{{ movies | json }}</pre>-->
 
 <!--
   Display movies using mat-card component, and project inside:
   <mat-card-title> - movie.title
-  <img mat-card-image [src]="yourImageUrl" /> - movie.backdrop_path
+  <img mat-card-image [src]='yourImageUrl' /> - movie.backdrop_path
   <mat-card-content> = movie.overview
 
   Note - use *ngFor directive to iterate over movies array
   https://material.angular.io/components/card/overview
  -->
+
+<mat-card class="movie" *ngFor="let movie of movies">
+  <mat-card-title>{{ movie.title }}</mat-card-title>
+  <img mat-card-image [src]="getFullImagePath(movie.backdrop_path)" />
+  <mat-card-content>{{ movie.overview }}</mat-card-content>
+</mat-card>
